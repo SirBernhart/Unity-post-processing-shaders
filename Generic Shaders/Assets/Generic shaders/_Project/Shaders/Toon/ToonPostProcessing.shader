@@ -3,10 +3,13 @@ Shader "Hidden/Bernardo/ToonPostProcessing"
     HLSLINCLUDE
     #include "Packages/com.unity.postprocessing/PostProcessing/Shaders/StdLib.hlsl"
     TEXTURE2D_SAMPLER2D(_MainTex, sampler_MainTex);
+    TEXTURE2D_SAMPLER2D(_CameraNormalsTexture, sampler_CameraNormalsTexture);
 
-    float _PosterizeSteps;
-    float _ToonSmoothness;
-    float _ToonOffset;
+    float _ShadowBrightness;
+    float _TransitionSmoothness;
+    float _MaxShadedValue;
+    float _MaxBrightness;
+
 
     // Hue, Saturation, Value
     // Ranges:
@@ -32,13 +35,12 @@ Shader "Hidden/Bernardo/ToonPostProcessing"
 
     float4 Frag(VaryingsDefault i) : SV_Target
     {
-
         float3 color = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.texcoord).xyz;
         float3 hsvColor = RgbToHsv(color);
 
-        float val = _ToonSmoothness + _ToonOffset;
-
-        hsvColor.z = (hsvColor.z + smoothstep(_ToonOffset, val, hsvColor.z))/2;
+        float upperEdge = _MaxShadedValue + _TransitionSmoothness;
+        hsvColor.z = _ShadowBrightness + smoothstep(_MaxShadedValue, upperEdge, hsvColor.z) * (1.0 - _ShadowBrightness);
+        hsvColor.z = min(hsvColor.z, _MaxBrightness);
 
         color = HsvToRgb(hsvColor);
 
