@@ -66,13 +66,46 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 1
+    value: 0
   shadowBrightness:
     overrideState: 1
-    value: 0.302
+    value: 0.063
+  maxBrightness:
+    overrideState: 1
+    value: 1
   transitionSmoothness:
     overrideState: 1
-    value: 0
+    value: 0.02
   maxShadedValue:
     overrideState: 1
-    value: 0.529
+    value: 0.801
+  steps:
+    overrideState: 1
+    value: 3
+  band1Brightness:
+    overrideState: 1
+    value: 0.33333334
+  band2Brightness:
+    overrideState: 1
+    value: 0.6666667
+  band3Brightness:
+    overrideState: 1
+    value: 1
+  band4Brightness:
+    overrideState: 1
+    value: 1
+  band5Brightness:
+    overrideState: 1
+    value: 1
+  edge1:
+    overrideState: 1
+    value: 0.33333334
+  edge2:
+    overrideState: 1
+    value: 0.6666667
+  edge3:
+    overrideState: 1
+    value: 1
+  edge4:
+    overrideState: 1
+    value: 1
