@@ -1,4 +1,4 @@
-﻿// Este código foi extraído do tutorial do Erick Roystan.
+// Este código foi extraído do tutorial do Erick Roystan.
 // O tutorial está disponível em: https://roystan.net/articles/outline-shader.html
 Shader "Hidden/Roystan/Normals Texture"
 {
@@ -7,9 +7,9 @@ Shader "Hidden/Roystan/Normals Texture"
     }
     SubShader
     {
-        Tags 
-		{ 
-			"RenderType" = "Opaque" 
+        Tags
+		{
+			"RenderType" = "Opaque"
 		}
 
         Pass
