@@ -1,4 +1,6 @@
-﻿Shader "Hidden/Roystan/Normals Texture"
+﻿// Este código foi extraído em sua maior parte do tutorial do Erick Roystan.
+// O tutorial está disponível em: https://roystan.net/articles/outline-shader.html
+Shader "Hidden/Roystan/Normals Texture"
 {
     Properties
     {
