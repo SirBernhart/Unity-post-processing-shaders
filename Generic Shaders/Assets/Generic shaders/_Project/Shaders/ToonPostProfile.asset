@@ -45,9 +45,6 @@ MonoBehaviour:
   depthNormalThresholdScale:
     overrideState: 0
     value: 7
-  cameraCoord:
-    overrideState: 0
-    value: {x: 0, y: 0, z: 0}
   color:
     overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
@@ -67,45 +64,51 @@ MonoBehaviour:
   enabled:
     overrideState: 1
     value: 0
-  shadowBrightness:
-    overrideState: 1
-    value: 0.063
-  maxBrightness:
-    overrideState: 1
-    value: 1
   transitionSmoothness:
     overrideState: 1
-    value: 0.02
-  maxShadedValue:
-    overrideState: 1
-    value: 0.801
+    value: 0.007
   steps:
     overrideState: 1
-    value: 3
-  band1Brightness:
+    value: 4
+  step1Brightness:
     overrideState: 1
-    value: 0.33333334
-  band2Brightness:
+    value: 0.196
+  step2Brightness:
     overrideState: 1
-    value: 0.6666667
-  band3Brightness:
+    value: 0.5
+  step3Brightness:
+    overrideState: 1
+    value: 0.75
+  step4Brightness:
     overrideState: 1
     value: 1
-  band4Brightness:
+  step5Brightness:
     overrideState: 1
     value: 1
-  band5Brightness:
+  step6Brightness:
+    overrideState: 1
+    value: 1
+  step7Brightness:
     overrideState: 1
     value: 1
   edge1:
     overrideState: 1
-    value: 0.33333334
+    value: 0.509
   edge2:
     overrideState: 1
-    value: 0.6666667
+    value: 0.653
   edge3:
     overrideState: 1
-    value: 1
+    value: 0.802
   edge4:
+    overrideState: 1
+    value: 1
+  edge5:
+    overrideState: 1
+    value: 1
+  edge6:
+    overrideState: 1
+    value: 1
+  edge7:
     overrideState: 1
     value: 1
