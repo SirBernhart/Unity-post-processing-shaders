@@ -14,7 +14,6 @@ public sealed class PostProcessOutline : PostProcessEffectSettings
     [Range(0, 1)]
     public FloatParameter depthNormalThreshold = new FloatParameter { value = 0.5f };
     public FloatParameter depthNormalThresholdScale = new FloatParameter { value = 7 };
-    public Vector3Parameter cameraCoord = new Vector3Parameter{ value = Vector3.zero };
     public ColorParameter color = new ColorParameter { value = Color.white };
 }
 
@@ -32,7 +31,6 @@ public sealed class PostProcessOutlineRenderer : PostProcessEffectRenderer<PostP
         sheet.properties.SetMatrix("_ClipToView", clipToView);
         sheet.properties.SetFloat("_DepthNormalThreshold", settings.depthNormalThreshold);
         sheet.properties.SetFloat("_DepthNormalThresholdScale", settings.depthNormalThresholdScale);
-        sheet.properties.SetVector("_cameraCoord", settings.cameraCoord);
         sheet.properties.SetColor("_Color", settings.color);
 
         context.command.BlitFullscreenTriangle(context.source, context.destination, sheet, 0);
