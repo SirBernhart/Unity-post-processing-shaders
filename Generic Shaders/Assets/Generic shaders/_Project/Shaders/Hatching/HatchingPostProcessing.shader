@@ -10,13 +10,14 @@ Shader "Hidden/Bernardo/HatchingPostProcessing"
     TEXTURE2D_SAMPLER2D(_HatchTex4, sampler_HatchTex4);
     TEXTURE2D_SAMPLER2D(_HatchTex5, sampler_HatchTex5);
 
+    float _TransitionSmoothness;
     int _NumberOfSteps;
-    float _BandBrightnessArray[5];
-    float _EdgesArray[4];
+    float _EdgesArray[7];
     float _HatchTilingFactor;
     float4 _BaseColor;
     bool _UseOriginalColor;
 
+    // From https://github.com/Unity-Technologies/FPSSample/blob/master/Packages/com.unity.postprocessing/PostProcessing/Shaders/Colors.hlsl
     // Hue, Saturation, Value
     // Ranges:
     //  Hue [0.0, 1.0]
@@ -43,7 +44,7 @@ Shader "Hidden/Bernardo/HatchingPostProcessing"
     {
         float3 color = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.texcoord).xyz;
         float3 hsvColor = RgbToHsv(color);
-        float2 hatchTexCoord = float2(i.texcoord.x%256*_HatchTilingFactor, i.texcoord.y%256*_HatchTilingFactor);
+        float2 hatchTexCoord = float2(i.texcoord.x*_HatchTilingFactor, i.texcoord.y*_HatchTilingFactor);
 
         float3 hatch0Color = SAMPLE_TEXTURE2D(_HatchTex0, sampler_HatchTex0, hatchTexCoord).xyz;
         float3 hatch1Color = SAMPLE_TEXTURE2D(_HatchTex1, sampler_HatchTex1, hatchTexCoord).xyz;
@@ -60,18 +61,21 @@ Shader "Hidden/Bernardo/HatchingPostProcessing"
             hatch3Color,
             hatch2Color,
             hatch1Color,
-            hatch0Color
+            hatch0Color,
+            float3(1,1,1)
         };
 
-        float3 newValue = float3(1,1,1)/*hatchColors[_NumberOfSteps-1]*/;
+        float3 newValue = hatchColors[_NumberOfSteps - 1];
 
-        for(int index = 0 ; index < _NumberOfSteps ; index++)
+        for(int index = 0 ; index < _NumberOfSteps-1 ; index++)
         {
             float currEdge = _EdgesArray[index];
-            //float nextEdge = _EdgesArray[index + 1];
-            if(hsvColor.z < currEdge/*(currEdge + nextEdge)/2*/)
+            float nextEdge = _EdgesArray[index + 1];
+            if(hsvColor.z < (currEdge + nextEdge)/2)
             {
-                newValue = hatchColors[index];
+                newValue = hatchColors[index] +
+                    smoothstep(currEdge - _TransitionSmoothness, currEdge + _TransitionSmoothness, hsvColor.z)
+                     * (hatchColors[index+1] - hatchColors[index]);
                 break;
             }
         }
