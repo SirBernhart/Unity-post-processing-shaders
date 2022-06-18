@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿// Este código foi extraído do tutorial do Erick Roystan.
+// O tutorial está disponível em: https://roystan.net/articles/outline-shader.html
+using UnityEngine;
 
 public class RenderReplacementShaderToTexture : MonoBehaviour
 {
