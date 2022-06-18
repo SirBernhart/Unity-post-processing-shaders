@@ -30,7 +30,6 @@ Shader "Hidden/Roystan/Outline Post Process"
 			float4x4 _ClipToView;
 			float _DepthNormalThreshold;
 			float _DepthNormalThresholdScale;
-            float3 _CameraCoord;
 			float4 _Color;
 
 			// Combines the top and bottom colors using normal blending.
@@ -80,7 +79,7 @@ Shader "Hidden/Roystan/Outline Post Process"
 				//return 1 - pixelDepth/10;
 				float depthModulatedScale = pixelDepth < scaleDepthMultiplierNearLimit ? _Scale :  _Scale / pixelDepth;
 				//float depthModulatedScale = _Scale / pixelDepth;
-		
+
 				float halfScaleFloor = floor(depthModulatedScale * 0.5);
 				float halfScaleCeil = ceil(depthModulatedScale * 0.5);
 
