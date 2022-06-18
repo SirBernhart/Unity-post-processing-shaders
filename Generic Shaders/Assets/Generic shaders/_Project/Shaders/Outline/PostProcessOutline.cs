@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
 [Serializable]
-[PostProcess(typeof(PostProcessOutlineRenderer), PostProcessEvent.BeforeStack, "Roystan/Post Process Outline")]
+[PostProcess(typeof(PostProcessOutlineRenderer), PostProcessEvent.BeforeStack, "Bernardo/Outline Post Process")]
 public sealed class PostProcessOutline : PostProcessEffectSettings
 {
     public IntParameter scale = new IntParameter { value = 1 };
@@ -22,7 +22,7 @@ public sealed class PostProcessOutlineRenderer : PostProcessEffectRenderer<PostP
 {
     public override void Render(PostProcessRenderContext context)
     {
-        var sheet = context.propertySheets.Get(Shader.Find("Hidden/Roystan/Outline Post Process"));
+        var sheet = context.propertySheets.Get(Shader.Find("Hidden/Bernardo/Outline Post Process"));
         sheet.properties.SetFloat("_Scale", settings.scale);
         sheet.properties.SetFloat("_DepthThreshold", settings.depthThreshold);
         sheet.properties.SetFloat("_NormalThreshold", settings.normalThreshold);
