@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: OutlinePostProfile
+  m_Name: ToonPostProfileForHatch
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 8250118770813538359}
+  - {fileID: 3962209542559031397}
 --- !u!114 &114178475910842986
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -48,7 +48,7 @@ MonoBehaviour:
   color:
     overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
---- !u!114 &8250118770813538359
+--- !u!114 &3962209542559031397
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,28 +57,58 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f161f1bfe8d69542a86f8d442c273b8, type: 3}
-  m_Name: PostProcessOutline
+  m_Script: {fileID: 11500000, guid: 5b93454dc5512364da975345999f5aff, type: 3}
+  m_Name: ToonPostProcessing
   m_EditorClassIdentifier: 
   active: 1
   enabled:
     overrideState: 1
     value: 1
-  scale:
+  transitionSmoothness:
     overrideState: 1
-    value: 2
-  depthThreshold:
+    value: 0.084
+  steps:
     overrideState: 1
-    value: 3
-  normalThreshold:
+    value: 7
+  step1Brightness:
     overrideState: 1
-    value: 0.269
-  depthNormalThreshold:
+    value: 0.14285715
+  step2Brightness:
+    overrideState: 1
+    value: 0.2857143
+  step3Brightness:
+    overrideState: 1
+    value: 0.42857146
+  step4Brightness:
+    overrideState: 1
+    value: 0.5714286
+  step5Brightness:
+    overrideState: 1
+    value: 0.71428573
+  step6Brightness:
+    overrideState: 1
+    value: 0.85714287
+  step7Brightness:
     overrideState: 1
     value: 1
-  depthNormalThresholdScale:
+  edge1:
     overrideState: 1
-    value: 8.87
-  color:
+    value: 0.14285715
+  edge2:
     overrideState: 1
-    value: {r: 0, g: 0, b: 0, a: 1}
+    value: 0.2857143
+  edge3:
+    overrideState: 1
+    value: 0.42857146
+  edge4:
+    overrideState: 1
+    value: 0.5714286
+  edge5:
+    overrideState: 1
+    value: 0.71428573
+  edge6:
+    overrideState: 1
+    value: 0.85714287
+  edge7:
+    overrideState: 1
+    value: 1

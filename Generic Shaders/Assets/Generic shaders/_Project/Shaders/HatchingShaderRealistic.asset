@@ -30,48 +30,21 @@ MonoBehaviour:
   enabled:
     overrideState: 1
     value: 1
-  shadowBrightness:
-    overrideState: 1
-    value: 0.5
-  maxBrightness:
-    overrideState: 1
-    value: 0.75
-  transitionSmoothness:
-    overrideState: 1
-    value: 0.5
-  maxShadedValue:
-    overrideState: 1
-    value: 0.75
   steps:
     overrideState: 1
     value: 5
-  band1Brightness:
-    overrideState: 1
-    value: 0.2
-  band2Brightness:
-    overrideState: 1
-    value: 0.4
-  band3Brightness:
-    overrideState: 1
-    value: 0.6
-  band4Brightness:
-    overrideState: 1
-    value: 0.8
-  band5Brightness:
-    overrideState: 1
-    value: 1
   edge1:
     overrideState: 1
-    value: 0.064
+    value: 0.2
   edge2:
     overrideState: 1
-    value: 0.185
+    value: 0.4
   edge3:
     overrideState: 1
-    value: 0.292
+    value: 0.6
   edge4:
     overrideState: 1
-    value: 0.599
+    value: 0.8
   hatching0:
     overrideState: 1
     value: {fileID: 2800000, guid: 74b9d8753a26295409689ed1111374f8, type: 3}
@@ -99,3 +72,9 @@ MonoBehaviour:
   hatchTilingFactor:
     overrideState: 1
     value: 8.73
+  baseColor:
+    overrideState: 1
+    value: {r: 1, g: 1, b: 1, a: 1}
+  useOriginalColor:
+    overrideState: 1
+    value: 0
