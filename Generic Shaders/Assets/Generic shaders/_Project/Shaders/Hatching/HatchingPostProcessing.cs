@@ -31,6 +31,7 @@ public sealed class HatchingPostProcessing : PostProcessEffectSettings
     public TextureParameter hatching3 = new TextureParameter();
     public TextureParameter hatching4 = new TextureParameter();
     public TextureParameter hatching5 = new TextureParameter();
+    public TextureParameter hatching6 = new TextureParameter();
     [Range(1f, 10f)]
     public FloatParameter hatchTilingFactor = new FloatParameter() {value = 1f};
     public ColorParameter baseColor = new ColorParameter() {value = Color.white};
@@ -103,6 +104,7 @@ public sealed class HatchingPostProcessingRenderer : PostProcessEffectRenderer<H
         sheet.properties.SetTexture("_HatchTex3", settings.hatching3);
         sheet.properties.SetTexture("_HatchTex4", settings.hatching4);
         sheet.properties.SetTexture("_HatchTex5", settings.hatching5);
+        sheet.properties.SetTexture("_HatchTex6", settings.hatching6);
         sheet.properties.SetFloat("_HatchTilingFactor",settings.hatchTilingFactor);
         sheet.properties.SetColor("_BaseColor", settings.baseColor);
         sheet.properties.SetInt("_UseOriginalColor", settings.useOriginalColor ? 1 : 0);

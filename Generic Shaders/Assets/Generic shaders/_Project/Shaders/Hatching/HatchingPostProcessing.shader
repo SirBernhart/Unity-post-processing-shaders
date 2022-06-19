@@ -9,6 +9,7 @@ Shader "Hidden/Bernardo/HatchingPostProcessing"
     TEXTURE2D_SAMPLER2D(_HatchTex3, sampler_HatchTex3);
     TEXTURE2D_SAMPLER2D(_HatchTex4, sampler_HatchTex4);
     TEXTURE2D_SAMPLER2D(_HatchTex5, sampler_HatchTex5);
+    TEXTURE2D_SAMPLER2D(_HatchTex6, sampler_HatchTex6);
 
     float _TransitionSmoothness;
     int _NumberOfSteps;
@@ -51,18 +52,19 @@ Shader "Hidden/Bernardo/HatchingPostProcessing"
         float3 hatch2Color = SAMPLE_TEXTURE2D(_HatchTex2, sampler_HatchTex2, hatchTexCoord).xyz;
         float3 hatch3Color = SAMPLE_TEXTURE2D(_HatchTex3, sampler_HatchTex3, hatchTexCoord).xyz;
         float3 hatch4Color = SAMPLE_TEXTURE2D(_HatchTex4, sampler_HatchTex4, hatchTexCoord).xyz;
-        float3 hatch5Color = SAMPLE_TEXTURE2D(_HatchTex5, sampler_HatchTex4, hatchTexCoord).xyz;
+        float3 hatch5Color = SAMPLE_TEXTURE2D(_HatchTex5, sampler_HatchTex5, hatchTexCoord).xyz;
+        float3 hatch6Color = SAMPLE_TEXTURE2D(_HatchTex6, sampler_HatchTex6, hatchTexCoord).xyz;
 
-        //Reversed order so that the darkest is the first
+        // Ordenados da hachura mais escura para a mais clara.
         float3 hatchColors[] =
         {
+            hatch6Color,
             hatch5Color,
             hatch4Color,
             hatch3Color,
             hatch2Color,
             hatch1Color,
-            hatch0Color,
-            float3(1,1,1)
+            hatch0Color
         };
 
         float3 newValue = hatchColors[_NumberOfSteps - 1];

@@ -18,64 +18,68 @@ MonoBehaviour:
     value: 1
   transitionSmoothness:
     overrideState: 1
-    value: 0.084
+    value: 0.036
   steps:
     overrideState: 1
     value: 7
   edge1:
     overrideState: 1
-    value: 0.14285715
+    value: 0.074
   edge2:
     overrideState: 1
-    value: 0.2857143
+    value: 0.174
   edge3:
     overrideState: 1
-    value: 0.42857146
+    value: 0.333
   edge4:
     overrideState: 1
-    value: 0.5714286
+    value: 0.476
   edge5:
     overrideState: 1
-    value: 0.71428573
+    value: 0.563
   edge6:
     overrideState: 1
-    value: 0.85714287
+    value: 0.693
   edge7:
     overrideState: 1
     value: 1
   hatching0:
     overrideState: 1
-    value: {fileID: 2800000, guid: 74b9d8753a26295409689ed1111374f8, type: 3}
+    value: {fileID: 2800000, guid: e74f185d4ac754f4a9a7f9ea1d45efb5, type: 3}
     defaultState: 1
   hatching1:
     overrideState: 1
-    value: {fileID: 2800000, guid: 71e1ad86c497f0e47adca7bec987c029, type: 3}
+    value: {fileID: 2800000, guid: 74b9d8753a26295409689ed1111374f8, type: 3}
     defaultState: 1
   hatching2:
     overrideState: 1
-    value: {fileID: 2800000, guid: 7c2650f9d8af5144c800b753bcbea3f5, type: 3}
+    value: {fileID: 2800000, guid: 71e1ad86c497f0e47adca7bec987c029, type: 3}
     defaultState: 1
   hatching3:
     overrideState: 1
-    value: {fileID: 2800000, guid: fbb934f0d688fe7499463b4d8e6a4914, type: 3}
+    value: {fileID: 2800000, guid: 7c2650f9d8af5144c800b753bcbea3f5, type: 3}
     defaultState: 1
   hatching4:
     overrideState: 1
-    value: {fileID: 2800000, guid: 32dd824c94ed502478e2bb5490c50ce6, type: 3}
+    value: {fileID: 2800000, guid: fbb934f0d688fe7499463b4d8e6a4914, type: 3}
     defaultState: 1
   hatching5:
+    overrideState: 1
+    value: {fileID: 2800000, guid: 32dd824c94ed502478e2bb5490c50ce6, type: 3}
+    defaultState: 1
+  hatching6:
     overrideState: 1
     value: {fileID: 2800000, guid: 4cca3ad5285fb384ba268a6dc72199e3, type: 3}
     defaultState: 1
   hatchTilingFactor:
     overrideState: 1
-    value: 2.05
+    value: 2.97
   baseColor:
     overrideState: 1
     value: {r: 1, g: 0.9975, b: 0.9, a: 1}
   useOriginalColor:
     overrideState: 1
-    value: 1
+    value: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
