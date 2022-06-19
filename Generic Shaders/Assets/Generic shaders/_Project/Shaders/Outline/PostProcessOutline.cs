@@ -15,6 +15,7 @@ public sealed class PostProcessOutline : PostProcessEffectSettings
     public FloatParameter depthNormalThreshold = new FloatParameter { value = 0.5f };
     public FloatParameter depthNormalThresholdScale = new FloatParameter { value = 7 };
     public ColorParameter color = new ColorParameter { value = Color.white };
+    public FloatParameter distanceToUseNormalScale = new FloatParameter {value = 15};
 }
 
 public sealed class PostProcessOutlineRenderer : PostProcessEffectRenderer<PostProcessOutline>
@@ -32,6 +33,7 @@ public sealed class PostProcessOutlineRenderer : PostProcessEffectRenderer<PostP
         sheet.properties.SetFloat("_DepthNormalThreshold", settings.depthNormalThreshold);
         sheet.properties.SetFloat("_DepthNormalThresholdScale", settings.depthNormalThresholdScale);
         sheet.properties.SetColor("_Color", settings.color);
+        sheet.properties.SetFloat("_DistanceToUseNormalScale", settings.distanceToUseNormalScale);
 
         context.command.BlitFullscreenTriangle(context.source, context.destination, sheet, 0);
     }

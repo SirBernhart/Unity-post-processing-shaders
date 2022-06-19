@@ -33,6 +33,7 @@ Shader "Hidden/Bernardo/Outline Post Process"
 			float _DepthNormalThreshold;
 			float _DepthNormalThresholdScale;
 			float4 _Color;
+            float _DistanceToUseNormalScale;
 
 			// Combines the top and bottom colors using normal blending.
 			// https://en.wikipedia.org/wiki/Blend_modes#Normal_blend_mode
@@ -74,13 +75,8 @@ Shader "Hidden/Bernardo/Outline Post Process"
 
 			float4 Frag(Varyings i) : SV_Target
 			{
-				float scaleDepthMultiplierNearLimit = 15;
-
-				//float pixelDepth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, i.texcoord);
 				float pixelDepth = LinearEyeDepth(SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, i.texcoord).r);
-				//return 1 - pixelDepth/10;
-				float depthModulatedScale = pixelDepth < scaleDepthMultiplierNearLimit ? _Scale :  _Scale / pixelDepth;
-				//float depthModulatedScale = _Scale / pixelDepth;
+				float depthModulatedScale = pixelDepth < _DistanceToUseNormalScale ? _Scale :  _Scale / pixelDepth;
 
 				float halfScaleFloor = floor(depthModulatedScale * 0.5);
 				float halfScaleCeil = ceil(depthModulatedScale * 0.5);
@@ -90,25 +86,15 @@ Shader "Hidden/Bernardo/Outline Post Process"
 				float2 bottomRightUV = i.texcoord + float2(_MainTex_TexelSize.x * halfScaleCeil, -_MainTex_TexelSize.y * halfScaleFloor);
 				float2 topLeftUV = i.texcoord + float2(-_MainTex_TexelSize.x * halfScaleFloor, _MainTex_TexelSize.y * halfScaleCeil);
 
-				float depth0 = LinearEyeDepth(SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, bottomLeftUV).r);
-				float depth1 = LinearEyeDepth(SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, topRightUV).r);
-				float depth2 = LinearEyeDepth(SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, bottomRightUV).r);
-				float depth3 = LinearEyeDepth(SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, topLeftUV).r);
-				//return depth0 / 30;
+				float depth0 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, bottomLeftUV).r;
+				float depth1 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, topRightUV).r;
+				float depth2 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, bottomRightUV).r;
+				float depth3 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, topLeftUV).r;
 
-				//return SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, bottomLeftUV);
 				float3 normal0 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, bottomLeftUV).rgb;
 				float3 normal1 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, topRightUV).rgb;
 				float3 normal2 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, bottomRightUV).rgb;
 				float3 normal3 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, topLeftUV).rgb;
-
-				float3 normalFiniteDifference0 = normal1 - normal0;
-				float3 normalFiniteDifference1 = normal3 - normal2;
-
-				float edgeNormal = sqrt(dot(normalFiniteDifference0, normalFiniteDifference0) + dot(normalFiniteDifference1, normalFiniteDifference1));
-				edgeNormal = edgeNormal > _NormalThreshold ? 1 : 0;
-
-				//return edgeNormal;
 
 				float depthFiniteDifference0 = depth1 - depth0;
 				float depthFiniteDifference1 = depth3 - depth2;
@@ -120,10 +106,13 @@ Shader "Hidden/Bernardo/Outline Post Process"
 				float normalThreshold = normalThreshold01 * _DepthNormalThresholdScale + 1;
 
 				float depthThreshold = _DepthThreshold * depth0 * normalThreshold;
-				//float depthThreshold = _DepthThreshold * normalThreshold;
 				edgeDepth = edgeDepth > depthThreshold ? 1 : 0;
 
-				//return edgeDepth;
+				float3 normalFiniteDifference0 = normal1 - normal0;
+				float3 normalFiniteDifference1 = normal3 - normal2;
+
+				float edgeNormal = sqrt(dot(normalFiniteDifference0, normalFiniteDifference0) + dot(normalFiniteDifference1, normalFiniteDifference1));
+				edgeNormal = edgeNormal > _NormalThreshold ? 1 : 0;
 
 				float edge = max(edgeDepth, edgeNormal);
 
