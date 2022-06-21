@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: HatchingShaderRealistic
+  m_Name: HatchingShaderCartoon
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 330505589410503373}
---- !u!114 &330505589410503373
+  - {fileID: 5485180903082566786}
+--- !u!114 &5485180903082566786
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32,7 +32,7 @@ MonoBehaviour:
     value: 0
   transitionSmoothness:
     overrideState: 1
-    value: 0.5
+    value: 0.036
   steps:
     overrideState: 1
     value: 7
@@ -87,10 +87,10 @@ MonoBehaviour:
     defaultState: 1
   hatchTilingFactor:
     overrideState: 1
-    value: 8.72
+    value: 8.19
   baseColor:
     overrideState: 1
-    value: {r: 1, g: 0.9978828, b: 0.9481132, a: 1}
+    value: {r: 0.9988507, g: 1, b: 0.9386792, a: 1}
   useOriginalColor:
     overrideState: 1
     value: 0

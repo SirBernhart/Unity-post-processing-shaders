@@ -48,6 +48,9 @@ MonoBehaviour:
   color:
     overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
+  distanceToUseNormalScale:
+    overrideState: 0
+    value: 15
 --- !u!114 &3962209542559031397
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -63,19 +66,19 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 0
+    value: 1
   transitionSmoothness:
     overrideState: 1
-    value: 0.007
+    value: 0.003
   steps:
     overrideState: 1
-    value: 4
+    value: 2
   step1Brightness:
     overrideState: 1
-    value: 0.196
+    value: 0.5
   step2Brightness:
     overrideState: 1
-    value: 0.5
+    value: 1
   step3Brightness:
     overrideState: 1
     value: 0.75
@@ -93,13 +96,13 @@ MonoBehaviour:
     value: 1
   edge1:
     overrideState: 1
-    value: 0.509
+    value: 0.5
   edge2:
     overrideState: 1
-    value: 0.653
+    value: 1
   edge3:
     overrideState: 1
-    value: 0.802
+    value: 0.75
   edge4:
     overrideState: 1
     value: 1

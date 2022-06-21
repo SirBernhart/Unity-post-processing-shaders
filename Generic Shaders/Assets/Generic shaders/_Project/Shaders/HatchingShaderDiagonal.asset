@@ -59,27 +59,27 @@ MonoBehaviour:
     value: 1
   hatching0:
     overrideState: 1
-    value: {fileID: 2800000, guid: 74b9d8753a26295409689ed1111374f8, type: 3}
+    value: {fileID: 2800000, guid: 8feefa12a3adec94081ed4606e39d96a, type: 3}
     defaultState: 1
   hatching1:
     overrideState: 1
-    value: {fileID: 2800000, guid: 71e1ad86c497f0e47adca7bec987c029, type: 3}
+    value: {fileID: 2800000, guid: 8a908cedbf04d584f95443e51ff5b50c, type: 3}
     defaultState: 1
   hatching2:
     overrideState: 1
-    value: {fileID: 2800000, guid: 7c2650f9d8af5144c800b753bcbea3f5, type: 3}
+    value: {fileID: 2800000, guid: 21d72fa7661db254cad668efa1aaaa2a, type: 3}
     defaultState: 1
   hatching3:
     overrideState: 1
-    value: {fileID: 2800000, guid: fbb934f0d688fe7499463b4d8e6a4914, type: 3}
+    value: {fileID: 2800000, guid: 16a0a27d495007b4fabcb0b0515c1aa5, type: 3}
     defaultState: 1
   hatching4:
     overrideState: 1
-    value: {fileID: 2800000, guid: 32dd824c94ed502478e2bb5490c50ce6, type: 3}
+    value: {fileID: 2800000, guid: b1022a00b5b6d534f8a26efa6ca1accd, type: 3}
     defaultState: 1
   hatching5:
     overrideState: 1
-    value: {fileID: 2800000, guid: 4cca3ad5285fb384ba268a6dc72199e3, type: 3}
+    value: {fileID: 2800000, guid: bd03cda271fe7f74a98f04f968d6a891, type: 3}
     defaultState: 1
   hatchTilingFactor:
     overrideState: 1

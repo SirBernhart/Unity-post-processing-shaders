@@ -48,6 +48,9 @@ MonoBehaviour:
   color:
     overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
+  distanceToUseNormalScale:
+    overrideState: 0
+    value: 15
 --- !u!114 &3962209542559031397
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -66,49 +69,49 @@ MonoBehaviour:
     value: 1
   transitionSmoothness:
     overrideState: 1
-    value: 0.084
+    value: 0.041
   steps:
     overrideState: 1
-    value: 7
+    value: 2
   step1Brightness:
     overrideState: 1
-    value: 0.14285715
+    value: 0.5
   step2Brightness:
     overrideState: 1
-    value: 0.2857143
+    value: 1
   step3Brightness:
     overrideState: 1
-    value: 0.42857146
+    value: 1
   step4Brightness:
     overrideState: 1
-    value: 0.5714286
+    value: 1
   step5Brightness:
     overrideState: 1
-    value: 0.71428573
+    value: 1
   step6Brightness:
     overrideState: 1
-    value: 0.85714287
+    value: 1
   step7Brightness:
     overrideState: 1
     value: 1
   edge1:
     overrideState: 1
-    value: 0.14285715
+    value: 0.421
   edge2:
     overrideState: 1
-    value: 0.2857143
+    value: 1
   edge3:
     overrideState: 1
-    value: 0.42857146
+    value: 1
   edge4:
     overrideState: 1
-    value: 0.5714286
+    value: 1
   edge5:
     overrideState: 1
-    value: 0.71428573
+    value: 1
   edge6:
     overrideState: 1
-    value: 0.85714287
+    value: 1
   edge7:
     overrideState: 1
     value: 1
